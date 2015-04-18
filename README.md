@@ -19,3 +19,10 @@ features <- read.table('features.txt')
 
 ## Set the column names of the X_data data frame to the feature names
 colnames(X_data) <- features[,2]
+
+## Select the columns that contain the data for mean and standard deviation
+## create a new vector containing only the features to keep
+feat <- as.vector(features[c(1:6,41:46,81:86,121:126,161:166,201:202,214:215,227:228,240:241,253:254,266:271,345:350,424:429,503:504,516:517,529:530,542:543),2])
+## create a new data frame containing only these features
+X_select <- X_data[feat]
+
