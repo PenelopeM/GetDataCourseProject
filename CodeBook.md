@@ -103,3 +103,6 @@ I chose to keep the following measurements:
 530 fBodyBodyGyroMag-std()
 542 fBodyBodyGyroJerkMag-mean()
 543 fBodyBodyGyroJerkMag-std()
+
+Step 6: 
+Using the index of the measurements I wanted to keep I created a vector with those values and then selected the columns of X_data based on that vector
