@@ -106,3 +106,8 @@ I chose to keep the following measurements:
 
 Step 6: 
 Using the index of the measurements I wanted to keep I created a vector with those values and then selected the columns of X_data based on that vector
+
+Step 7:
+Load the Y_test and Y_train data in R using read.table(). Then use rbind() to create a Y_data for the complete set of data
+
+
