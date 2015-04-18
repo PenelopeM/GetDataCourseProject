@@ -26,3 +26,13 @@ feat <- as.vector(features[c(1:6,41:46,81:86,121:126,161:166,201:202,214:215,227
 ## create a new data frame containing only these features
 X_select <- X_data[feat]
 
+## Load the Y_test data
+Y_test <- read.table('test//y_test.txt')
+
+## Load the Y_train data
+Y_train <- read.table('train//y_train.txt')
+
+## Create a new Y_data variable by binding the test and train data with rbind()
+Y_data <- rbind(Y_test, Y_train)
+
+## Use 
