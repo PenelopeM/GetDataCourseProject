@@ -26,8 +26,17 @@ colnames(X_data) <- features[,2]
 ## Select the columns that contain the data for mean and standard deviation
 ## create a new vector containing only the features to keep
 feat <- as.vector(features[c(1:6,41:46,81:86,121:126,161:166,201:202,214:215,227:228,240:241,253:254,266:271,345:350,424:429,503:504,516:517,529:530,542:543),2])
+
 ## create a new data frame containing only these features
 X_select <- X_data[feat]
+
+## Load the subject data for test and train, bind then into one subject vector (name the column 'subject')
+## and then bind them to the data
+sub_test <- read.table('test//subject_test.txt')
+sub_train <- read.table('train//subject_train.txt')
+sub <- rbind(sub_test, sub_train)
+names(sub) <- 'subject'
+X_select <- cbind(sub, X_select)
 
 ## Load the Y_test data
 Y_test <- read.table('test//y_test.txt')
@@ -53,8 +62,8 @@ names(activity) <- c('activity_index', 'activity')
 ## Merge the data with the activities so that we have the name of the activities and not just indexes
 data_act <- merge(activity, data)
 
-## Select the columns to keep after the merge (i.e. remove index columns)
-data_act <- select(data_act, 2:68, -3)
+## Select the columns to keep after the merge (i.e. remove index column)
+data_act <- select(data_act, 2:68)
 
 ## Remove the () from the column names
 names(data_act) <- sub('\\()', '', names(data_act))
