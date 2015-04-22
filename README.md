@@ -55,3 +55,6 @@ data_act <- merge(activity, data)
 
 ## Select the columns to keep after the merge (i.e. remove index columns)
 data_act <- select(data_act, 2:68, -3)
+
+## Remove the () from the column names
+names(data_act) <- sub('\\()', '', names(data_act))
