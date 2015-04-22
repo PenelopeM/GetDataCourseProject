@@ -108,20 +108,26 @@ Step 6:
 Using the index of the measurements I wanted to keep I created a vector with those values and then selected the columns of X_data based on that vector
 
 Step 7:
-Load the Y_test and Y_train data in R using read.table(). Then use rbind() to create a Y_data for the complete set of data
+Load the subject data for train and test, bind them to create subject data for the whole set and name it 'subject'.
+Bind it to the selected data from Step 6, 'X_select'.
 
 Step 8:
-Name the column of Y 'activity_index' and bind it to the X data using cbind().
+Load the Y_test and Y_train data in R using read.table(). Then use rbind() to create a Y_data for the complete set of data
 
 Step 9:
-Load the activities table and name the columns of the table 'activity_index' and 'activity'
+Name the column of Y 'activity_index' and bind it to the X data using cbind().
 
 Step 10:
-Merge the the activities table with the complete data and then select all columns except the activity_index columns.
+Load the activities table and name the columns of the table 'activity_index' and 'activity'
 
 Step 11:
+Merge the the activities table with the complete data and then select all columns except the activity_index columns.
+
+Step 12:
 Clean the column names.
 For this project as the data is complexe and the names even more so I have chosen to keep the actual text.
 If I had chosen to replace the abreviations by the complete word the table would become unreadable.
 For this reason I have chosen simply to remove the () in each column name.
 
+Step 13:
+Colpase the data by subject and by activity and calculate the means for all the associated measurements.
