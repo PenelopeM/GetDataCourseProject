@@ -130,4 +130,23 @@ If I had chosen to replace the abreviations by the complete word the table would
 For this reason I have chosen simply to remove the () in each column name.
 
 Step 13:
-Colpase the data by subject and by activity and calculate the means for all the associated measurements.
+Colpase the data by subject and by activity using melt() and calculate the means for all the associated measurements using dcast().
+
+The final data set is the variable data_act and the second tidy data set with the mean of the measurements is in the variable breakdown.
+
+data_act is a data frame with 10299 rown and 67 columns
+breakdown is a data frame with 180 rows (30 subject x 6 activities = 180) and 67 columns
+
+Here is a list of all the variables in the data set :
+The first two columns are the activities (walking, walking upstairs, walking downstaires, sitting, standing, laying), and the subjects numbered 1 to 30.
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+We have the mean and standard deviation of all of these variables.
