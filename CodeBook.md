@@ -110,4 +110,18 @@ Using the index of the measurements I wanted to keep I created a vector with tho
 Step 7:
 Load the Y_test and Y_train data in R using read.table(). Then use rbind() to create a Y_data for the complete set of data
 
+Step 8:
+Name the column of Y 'activity_index' and bind it to the X data using cbind().
+
+Step 9:
+Load the activities table and name the columns of the table 'activity_index' and 'activity'
+
+Step 10:
+Merge the the activities table with the complete data and then select all columns except the activity_index columns.
+
+Step 11:
+Clean the column names.
+For this project as the data is complexe and the names even more so I have chosen to keep the actual text.
+If I had chosen to replace the abreviations by the complete word the table would become unreadable.
+For this reason I have chosen simply to remove the () in each column name.
 
