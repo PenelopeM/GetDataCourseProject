@@ -67,3 +67,9 @@ data_act <- select(data_act, 2:68)
 
 ## Remove the () from the column names
 names(data_act) <- sub('\\()', '', names(data_act))
+
+## Melt the data by activity and subject and using all the other columns as measures using the melt() function
+datamelt <- melt(data_act, id = c('activity', 'subject'), measure.vars = names(data_act)[3:67])
+
+## Cast the melted data frame by activity and subject and calculate the mean on all variables
+breakdown <- dcast(datamelt, activity + subject ~ variable,mean)
