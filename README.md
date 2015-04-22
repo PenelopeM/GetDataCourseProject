@@ -5,6 +5,9 @@ Course Project for the Getting and Cleaning Data Course from Coursera
 ## that you extracted the data and set your working directory in R to the 'UCI HAR Dataset' folder using the 
 ## setwd() function
 
+## Load necessary libraries
+library(dplyr)
+
 ## Load the X_test data
 X_test <- read.table('test//X_test.txt')
 
@@ -35,4 +38,20 @@ Y_train <- read.table('train//y_train.txt')
 ## Create a new Y_data variable by binding the test and train data with rbind()
 Y_data <- rbind(Y_test, Y_train)
 
-## Use 
+## Name the vector Y 'activity_index'
+names(Y_data) <- 'activity_index'
+
+## Add the Y data to the right of the X data
+data <- cbind(Y_data, X_select)
+
+## Load the names and indexes of the activities
+activity <- read.table('activity_labels.txt')
+
+## Name the columns of the activity data frame
+names(activity) <- c('activity_index', 'activity')
+
+## Merge the data with the activities so that we have the name of the activities and not just indexes
+data_act <- merge(activity, data)
+
+## Select the columns to keep after the merge (i.e. remove index columns)
+data_act <- select(data_act, 2:68, -3)
